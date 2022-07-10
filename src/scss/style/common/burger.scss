@@ -1,0 +1,170 @@
+// Burger ==================================================================
+.burger-btn {
+   width: 18px;
+   height: 14px;
+   cursor: pointer;
+   position: relative;
+   display: block;
+   z-index: 100;
+}
+
+.burger-wrapper{
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+   background-color: #fff;
+   z-index: 200;
+   right: 0;
+   transition: all .3s linear;
+}
+
+.burger-btn::after,
+.burger-btn::before,
+.burger-btn>span {
+   width: 100%;
+   position: absolute;
+   content: '';
+   height: 2px;
+   background-color: #000;
+   left: 0;
+   transition: all .3s ease;
+}
+
+.burger-btn::after {
+   top: 0;
+}
+
+.burger-btn::before {
+   bottom: 0;
+}
+
+.burger-btn>span {
+   top: 50%;
+   transform: translateY(-50%) scale(1);
+}
+
+// Burger Animation ============================================================
+body._active-burger .burger-btn::after {
+   transform: rotate(45deg);
+   top: 6px;
+}
+
+body._active-burger .burger-btn::before {
+   transform: rotate(-45deg);
+   bottom: 6px;
+}
+
+body._active-burger .burger-btn>span {
+   transform: scale(0);
+}
+body._active-burger .burger-wrapper{
+   @include mqm(1200px){
+      position: absolute;
+      right: 20px;
+   }
+   
+   // transform: translateX(30px);
+}
+
+// Burger Content ================================================================
+.burger-menu {
+   position: fixed;
+   right: 0;
+   top: 0;
+   overflow-x: hidden;
+   overflow-y: auto;
+   min-width: 47%;
+   max-width: 47%;
+   height: 100%;
+   padding: 40px 15px;
+   background-color: rgba(0, 0, 0, 0.5);
+   z-index: 50;
+   transform: translateX(100%);
+   transition: all .8s ease;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   color: #fff;
+   text-align: center;
+   @include mq('md'){
+      width: 100%;
+      max-width: none;
+   }
+      li {
+         margin-bottom: 15px;
+         opacity: 0;
+         a {
+            display: inline-block;
+            color: #fff;
+         }
+      }
+}
+
+// Burger Content Animation ======================================================
+$list-item: 20;
+body._active-burger .burger-menu {
+   transform: translateX(0px);
+   .burger-menu__list{
+         word-break: break-all;
+         padding: 60px 0px;
+         width: 100%;
+         & .burger-menu__item:last-child{
+            padding-bottom: to-rem(60);
+         }
+   }
+   @for $i from 1 through $list-item {
+         .burger-menu__list{
+            & .burger-menu__item:nth-child(1n+#{$i}) {
+                  position: relative;
+                  transform-origin: top center;
+                  animation: translateX 300ms ($i * 300ms) ease-in-out forwards;
+                  @keyframes translateX {
+                     0% {
+                        opacity: 0;
+                        transform: translateX(60px);
+                     }
+            
+                     80% {
+                        transform: translateX(-5px);
+                     }
+            
+                     100% {
+                        opacity: 1;
+                        transform: translateX(0px);
+                     }
+                  }
+               }
+         } 
+   }
+   & .burger-menu__link{
+      font-size: to-rem(24);
+      transition: .3s;
+      position: relative;
+      &::after {
+         content: '';
+         transition: .3s;
+         width: 0%;
+         height: 2px;
+         bottom: 0;
+         right: 0;
+         position: absolute;
+         transform-origin: right;
+         background-color: $color-gold;
+      }
+      @include mqm('md'){
+         &:hover {
+               color: $color-gold;
+         
+               &::after {
+                  width: 100%;
+               }
+            }
+      }
+      
+   }
+}

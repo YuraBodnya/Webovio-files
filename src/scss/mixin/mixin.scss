@@ -1,0 +1,52 @@
+// Media запрос
+@mixin mq($mq-breakpoint, $mq-breakpoints: $breakpoints) {
+   // If $mq-breakpoint is a key that exists in
+   // $mq-breakpoints, get and use the value
+   @if map-has-key($mq-breakpoints, $mq-breakpoint) {
+      $mq-breakpoint: map-get($mq-breakpoints, $mq-breakpoint);
+   }
+   @media screen and (max-width: #{$mq-breakpoint}) {
+      @content;
+   }
+}
+@mixin mqm($mq-breakpoint, $mq-breakpoints: $breakpoints) {
+   // If $mq-breakpoint is a key that exists in
+   // $mq-breakpoints, get and use the value
+   @if map-has-key($mq-breakpoints, $mq-breakpoint) {
+      $mq-breakpoint: map-get($mq-breakpoints, $mq-breakpoint);
+   }
+   @media screen and (min-width: #{$mq-breakpoint}) {
+      @content;
+   }
+}
+
+// Адаптивное свойство
+@mixin adaptiv-value($property, $startSize, $minSize, $type:0){
+   $addSize: $startSize - $minSize;
+   @if $type==1 {
+      // Только если меньше контейнера
+      #{$property}: $startSize + px;
+      @media screen and (max-width: #{$maxWidthContainer + px}){
+         #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
+      }
+   }@else if $type==2 {
+      // Только если больше контейнера
+      #{$property}: $startSize + px;
+      @media screen and (min-width: #{$maxWidthContainer + 1 + px}) {
+         #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+      }
+   }@else {
+      // Всегда
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+   }
+}
+
+// Перевод px в rem
+@function to-rem($pxNb) {
+   @return calc(math.round((math.div($pxNb, $font-size-base) * 100))/100) * 1rem;
+}
+
+// Перевод line-height px в проценты
+@function to-lh($numOne, $numTwo) {
+   @return calc(math.round(math.div($numOne, $numTwo)* 100) / 100);
+}

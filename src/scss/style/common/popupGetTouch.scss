@@ -1,0 +1,166 @@
+.get-in-touch {
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   opacity: 0;
+   visibility: hidden;
+   overflow-y: auto;
+   overflow-x: hidden;
+   background-color: rgba(0, 0, 0, .8);
+   z-index: 9999;
+   transition: all .8s ease 0s;
+
+   &__body {
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: to-rem(30) to-rem(15);
+   }
+
+   &__content {
+      width: to-rem(350);
+      background-color: #fff;
+      color: #000;
+      position: relative;
+      border-radius: to-rem(5);
+      opacity: 0;
+      transition: all .8s ease 0s;
+      @include mq('phone-wide'){
+         width: 100%;
+      }
+   }
+
+   &__header {
+      padding: to-rem(15);
+      border-bottom: 1px solid rgba(0, 0, 0, .3);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+   }
+
+   &__close {
+      width: 15px;
+      height: 15px;
+      position: relative;
+      &::after,
+      &::before{
+         position: absolute;
+         content: '';
+         width: 100%;
+         height: 1px;
+         left: 0;
+         background-color: #000;
+      }
+      &::after{
+         top: 7px;
+         transform: rotate(45deg);
+      }
+      &::before{
+         bottom: 7px;
+         transform: rotate(-45deg);
+      }
+   }
+
+
+   .form-touch {
+      padding: to-rem(20);
+   }
+
+   .field-form {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: to-rem(30);
+      position: relative;
+      &__label{
+         margin-bottom: to-rem(5);
+         color: rgba(0, 0, 0, .9);
+      }
+      &__input{
+         padding: to-rem(10);
+         outline: none;
+         border-radius: 3px;
+         border: 1px solid #000;
+         transition: .3s;
+         &:focus{
+            border: 1px solid rgb(6, 178, 191);
+         }
+      }
+      &__submit{
+         padding: to-rem(10) to-rem(15);
+         border-radius: to-rem(5);
+         border: none;
+         outline: none;
+         background-color: $color-gold;
+         cursor: pointer;
+         transition: .3s;
+         &:hover{
+            background-color: rgb(236, 201, 3);
+         }
+      }
+   }
+
+   
+
+
+   // Animation popup ======================================================
+   // Transform Y
+   &.trY {
+      .get-in-touch__content {
+         transform: translate(0px, -100%);
+      }
+   }
+
+
+   &.trY._open {
+      visibility: visible;
+      opacity: 1;
+
+      .get-in-touch__content {
+         opacity: 1;
+         transform: translate(0px, 0px);
+      }
+   }
+
+
+   // 3D Transform Y
+   &.trY3d {
+      .get-in-touch__content {
+         transform: perspective(to-rem(600)) translate(0px, -100%) rotateX(45deg);
+      }
+
+   }
+
+   &.trY3d._open {
+      visibility: visible;
+      opacity: 1;
+
+      .get-in-touch__content {
+         opacity: 1;
+         transform: perspective(to-rem(600)) translate(0px, 0%) rotateX(0deg);
+      }
+
+   }
+}
+
+.field-form__error {
+   position: absolute;
+   bottom: to-rem(-23);
+   left: 0;
+   padding: to-rem(3) to-rem(10);
+   opacity: 0;
+   border-radius: to-rem(3);
+   transition: .3s;
+}
+
+.field-form__error.correct-validation {
+   background-color: rgb(4, 219, 4);
+   opacity: 1;
+}
+
+.field-form__error.incorrect-validation {
+   background-color: rgb(219, 4, 4);
+   opacity: 1;
+}

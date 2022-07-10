@@ -1,0 +1,183 @@
+
+
+.evaluation {
+   position: relative;
+   padding: to-rem(150) to-rem(15) to-rem(322) to-rem(15);
+   @include mq('phone-wide') {
+         @include adaptiv-value('padding-top', 150, 65);
+         @include adaptiv-value('padding-bottom', 322, 210);
+      }
+   &__title {
+      max-width: to-rem(607);
+      margin-bottom: to-rem(60);
+      font-weight: 700;
+      font-size: to-rem(36);
+      line-height: to-lh(46,36);
+      color: #4D533C;
+      @include mq('1200px'){
+         text-align: center;
+         margin: 0 auto to-rem(60) auto;
+      }
+      @include mq('phone-wide'){
+         @include adaptiv-value('font-size',36,28);
+      }
+   }
+
+   &__row {
+      display: flex;
+      gap: to-rem(30);
+      @include mq('1200px'){
+         flex-wrap: wrap;
+         justify-content: center;
+      }
+      @include mq('sm'){
+         justify-content: flex-start;
+         gap: to-rem(15);
+      }
+   }
+}
+
+.col-evaluation {
+   padding: to-rem(27) to-rem(31) to-rem(36) to-rem(30);
+   display: flex;
+   flex-direction: column;
+   min-width: to-rem(255);
+   @include mq('sm') {
+         padding: to-rem(20) 0;
+      }
+   &__title {
+      max-width: to-rem(183);
+      font-weight: 500;
+      font-size: to-rem(24);
+      line-height: to-lh(34,24);
+      text-transform: uppercase;
+      color: #4D533C;
+      min-height: to-rem(68);
+      @include mq('sm') {
+         max-width: none;
+         min-height: auto;
+      }
+   }
+
+   &__text {
+      flex: 1 1 auto;
+      line-height: to-lh(26,14);
+      color: rgba(33, 56, 66, 0.6);
+      margin: to-rem(20) 0 to-rem(30) 0;
+      max-width: to-rem(194);
+      @include mq('sm') {
+            max-width: none;
+            margin: to-rem(20) 0 to-rem(20) 0;
+         }
+   }
+
+   &__more {
+      max-width: to-rem(102);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      &::after{
+         content: '';
+         position: absolute;
+         width: to-rem(8);
+         height: to-rem(8);
+         left: to-rem(-7);
+         top: 50%;
+         transform: rotate(45deg) translateY(to-rem(-6));
+         background-color: rgba(212, 214, 212, 1);
+         transform-origin: center;
+         border-radius: 1px;
+         transition: .3s;
+      }
+      &:hover{
+         &::after{
+            background-color: $color-gold;
+         }
+         .col-evaluation__link {
+            color: $color-gold;
+         }
+      }
+   }
+
+   &__link {
+      font-size: to-rem(16);
+      line-height: to-lh(18,16);
+      text-decoration-line: underline;
+      color: rgba(212, 214, 212, 1);
+      transition: .3s;
+   }
+}
+
+
+
+.amazing {
+   position: absolute;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   max-width: to-rem(1275);
+   height: to-rem(362);
+   padding: to-rem(70) to-rem(165);
+   left: 0;
+   bottom: to-rem(-181);
+   background: #FAFAFA;
+   box-shadow: 50px 130px 100px rgba(0, 0, 0, 0.145947);
+   @include mq('1200px') {
+         @include adaptiv-value('padding-left', 165, 15);
+         @include adaptiv-value('padding-right', 165, 15);
+         @include adaptiv-value('height', 362, 320);
+         @include adaptiv-value('bottom', -181, -160);
+      }
+   &__title {
+      font-weight: 700;
+      font-size: to-rem(60);
+      line-height: to-lh(74,60);
+      margin-bottom: to-rem(50);
+      color: #4D533C;
+      @include mq('1200px'){
+         @include adaptiv-value('font-size',60,28)
+      }
+   }
+
+   &__link {
+      position: relative;
+      max-width: to-rem(162);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      &::after{
+         content: '';
+         position: absolute;
+         width: to-rem(10);
+         height: to-rem(10);
+         transform: rotate(45deg);
+         transform-origin: center;
+         background-color: #D4D6D4;
+         border-radius: 1px;
+         left: -4px;
+         top: 3px;
+         transition: .3s;
+      }
+      &:hover{
+         &::after {
+               background-color: $color-gold;
+            }
+         .amazing__span{
+            color: $color-gold;
+         }
+      }
+   }
+
+   &__span {
+      font-size: to-rem(16);
+      line-height: to-lh(18,16);
+      text-decoration-line: underline;
+      font-weight: 600;
+      color: #D4D6D4;
+      text-transform: uppercase;
+      transition: .3s;
+   }
+}

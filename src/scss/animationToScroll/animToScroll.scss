@@ -1,0 +1,112 @@
+
+// ! Виды анимации =====================================================================
+[data-animation^=fade].item-animate{
+   opacity: 1;
+   transform: translate3d(0, 0, 0);
+}
+// ? Слева Fade
+[data-animation=fade-left] {
+   transition: 1s ease-in-out;
+   opacity: 0;
+   transform: translate3d(-100px, 0, 0);
+}
+// ? Справа Fade
+[data-animation=fade-rigth] {
+   transition: 1s ease-in-out;
+   opacity: 0;
+   transform: translate3d(100px, 0, 0);
+}
+
+// ? Слева
+[data-animation^=left].item-animate {
+   transform: translate3d(0, 0, 0);
+}
+[data-animation=left] {
+   transition: 1s ease-in-out;
+   transform: translate3d(-100%, 0, 0);
+}
+// ? Справа
+[data-animation^=rigth].item-animate {
+   transform: translate3d(0, 0, 0);
+}
+[data-animation=rigth] {
+   transition: 1s ease-in-out;
+   transform: translate3d(100%, 0, 0);
+}
+
+// ? Zoom
+[data-animation^=zoom].item-animate {
+   opacity: 1;
+   transform: translateZ(0) scale(1);
+}
+[data-animation=zoom] {
+   transition: 1s ease-in-out;
+   opacity: 0;
+   transform: scale(.6);
+}
+// ! Время анимации =====================================================================
+[data-animation][data-animation][data-animation-duration="1000"],
+body[data-animation-duration="1000"]{
+   transition-duration: 1s;
+}
+[data-animation][data-animation][data-animation-duration="800"],
+body[data-animation-duration="800"]{
+   transition-duration: .8s;
+}
+[data-animation][data-animation][data-animation-duration="500"],
+body[data-animation-duration="500"]{
+   transition-duration: .5s;
+}
+[data-animation][data-animation][data-animation-duration="300"],
+body[data-animation-duration="300"]{
+   transition-duration: .3s;
+}
+
+// ! Тип анимации =======================================================================
+[data-animation][data-animation][data-animation-easing=linear],
+body[data-animation-easing=linear]{
+   transition-timing-function: cubic-bezier(.25, .25, .75, .75);
+}
+[data-animation][data-animation][data-animation-easing=ease-out-back],
+body[data-animation-easing=ease-out-back]{
+   transition-timing-function: cubic-bezier(.175, .885, .32, 1.275);
+}
+[data-animation][data-animation][data-animation-easing=ease-in-back],
+body[data-animation-easing=ease-in-back]{
+   transition-timing-function: cubic-bezier(.6, -.28, .735, .045);
+}
+[data-animation][data-animation][data-animation-easing=ease-out-cubic],
+body[data-animation-easing=ease-out-cubic]{
+   transition-timing-function: cubic-bezier(.25, .46, .45, .94);
+}
+[data-animation][data-animation][data-animation-easing=ease-out-back],
+body[data-animation-easing=ease-out-back]{
+   transition-timing-function: cubic-bezier(.175, .885, .32, 1.275);
+}
+
+// ! Задержка анимации =======================================================================
+
+[data-animation][data-animation][data-animation-delay="0.15"].item-animate,
+body[data-animation-delay="0.15"].item-animate {
+   transition-delay: .15s;
+}
+[data-animation][data-animation][data-animation-delay="0.3"].item-animate,
+body[data-animation-delay="0.3"].item-animate {
+   transition-delay: .3s;
+}
+[data-animation][data-animation][data-animation-delay="0.45"].item-animate,
+body[data-animation-delay="0.45"].item-animate {
+   transition-delay: .45s;
+}
+[data-animation][data-animation][data-animation-delay="0.6"].item-animate,
+body[data-animation-delay="0.6"].item-animate {
+   transition-delay: .6s;
+}
+[data-animation][data-animation][data-animation-delay="0.75"].item-animate,
+body[data-animation-delay="0.75"].item-animate {
+   transition-delay: .75s;
+}
+[data-animation][data-animation][data-animation-delay="0.9"].item-animate,
+body[data-animation-delay="0.9"].item-animate {
+   transition-delay: .9s;
+}

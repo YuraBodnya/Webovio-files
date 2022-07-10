@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/head.html',{
+      "title":"Webovio"
+   })
+   <body>
+      
+      <div class="wrapper">
+         @@include('html/header.html')
+         @@include('html/client.html')
+         @@include('html/main.html')
+         @@include('html/footer.html')
+      
+         @@include('html/common/popupGetTouch.html',{
+            "id":"popupGetInTouch",
+            "animation":"trY3d"
+         })
+         @@include('html/common/popupResult.html',{
+            "id":"popupResult",
+            "animation":"trY3d"
+         })
+         @@include('html/common/popupMore.html',{
+            "id":"popupMore",
+            "animation":"trY"
+         })
+         @@include('html/common/popupStarted.html',{
+            "id":"popupStarted",
+            "animation":"trY"
+         })
+      </div>
+
+      
+      <script src="js/app.min.js"></script>
+   </body>
+</html>

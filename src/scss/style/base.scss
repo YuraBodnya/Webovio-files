@@ -1,0 +1,64 @@
+
+*,
+*::before,
+*::after{
+   box-sizing: border-box;
+}
+
+html {
+   font-size: $font-size-base + px;
+}
+
+html,
+body{
+   scroll-behavior: smooth;
+   height: 100%;
+}
+
+body{
+   position: relative;
+   font-family: $font-base;
+   font-weight: $font-weight-base;
+   overflow-x: hidden;
+}
+
+body.lock,
+body._active-burger{
+   overflow: hidden;
+}
+
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p{
+   margin: 0;
+   padding: 0;
+}
+
+a{
+   text-decoration: none;
+}
+
+ul,
+li{
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+
+.container{
+   max-width: $container-max-width;
+   padding: 0 $container-padding;
+   margin: 0 auto;
+}
+
+.wrapper{
+   overflow-x: hidden;
+}
+

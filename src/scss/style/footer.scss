@@ -1,0 +1,218 @@
+
+.footer {
+   @include adaptiv-value('padding-top', 310, 180);
+   background-image: url('../img/footer-Bg.png');
+   &__head {
+      padding-bottom: to-rem(52);
+      @include adaptiv-value('padding-bottom', 52, 30);
+      border-bottom: 1px solid #5D6544;;
+   }
+
+   &__body {
+      padding: to-rem(60) 0;
+      border-bottom: 1px solid #5D6544;
+   }
+}
+
+.head-footer {
+   display: flex;
+   flex-wrap: wrap;
+   gap: to-rem(128);
+   @include adaptiv-value('gap',128,20);
+
+   &__title {
+      font-size: to-rem(16);
+      line-height: to-lh(40,16);
+      color: #B6C197;
+   }
+   &__tel:hover{
+      text-decoration: underline;
+   }
+   .address-text{
+      font-weight: 700;
+      font-size: to-rem(16);
+      line-height: to-lh(40,16);
+      color: #FFFFFF;
+      @include adaptiv-value('font-size', 16, 14);
+   }
+}
+
+.body-footer {
+   display: flex;
+   justify-content: space-between;
+   &__services {}
+
+   &__contact {}
+}
+
+.services {
+   display: flex;
+   gap: to-rem(70);
+   @include adaptiv-value('gap',70,25,1);
+
+   @include mq('lg') {
+         flex-wrap: wrap;
+      }
+   &__list {
+      width: to-rem(167);
+   }
+
+   &__title {
+      font-weight: 600;
+      font-size: to-rem(16);
+      line-height: to-lh(38,16);
+      text-transform: uppercase;
+      color: #FFFFFF;
+      margin-bottom: to-rem(21);
+   }
+
+   &__link {
+      font-size: to-rem(16);
+      line-height: to-lh(40,16);
+      color: #B6C197;
+      transition: all .3s;
+      &:hover{
+         text-decoration: underline;
+         color: #e4e7db;
+      }
+   }
+}
+
+
+
+
+//=================================================================
+
+.body-footer {
+   display: flex;
+   
+   @include mq('lg') {
+         flex-wrap: wrap;
+      }
+   &__contact {}
+}
+
+.contact {
+   display: flex;
+   justify-content: flex-end;
+   position: relative;
+   width: to-rem(378);
+   width: to-rem(430);
+   @include mq('1171px'){
+      width: auto;
+   }
+   
+   @include mq('949px'){
+      padding-top: to-rem(30);
+   }
+   &__line {
+      position: absolute;
+      height: to-rem(210);
+      left: 0;
+      width: to-rem(1);
+      top: to-rem(11);
+      background-color: #5D6544;
+      @include mq('1171px') {
+            display: none;
+         }
+   }
+
+}
+
+.block-contact {
+   max-width: to-rem(322);
+
+   &__title {
+      font-weight: 600;
+      font-size: to-rem(16);
+      line-height: to-lh(38,16);
+      text-transform: uppercase;
+      color: #FFFFFF;
+      margin-bottom: to-rem(23);
+   }
+
+   &__desc {
+      font-size: to-rem(16);
+      line-height: to-lh(26,16);
+      color: #B6C197;
+      margin-bottom: to-rem(23);
+      max-width: to-rem(270);
+   }
+
+   &__mail {
+      margin-bottom: to-rem(23);
+   }
+
+   &__mail-link {
+      font-weight: 700;
+      font-size: to-rem(24);
+      line-height: to-lh(38,24);
+      color: #FFFFFF;
+      @include mq('phone-wide'){
+         @include adaptiv-value('font-size',24,16);
+      }
+   }
+}
+
+.social {
+   &__list {
+      display: flex;
+      gap: to-rem(11);
+   }
+
+   &__item {
+      width: to-rem(33);
+      height: to-rem(33);
+      border-radius: 50%;
+      background-color: #444A34;
+      transition: .3s;
+      &:hover{
+         background-color: $color-gold;
+         .social__svg{
+           & path{
+               fill: #ffff;
+            }
+         }
+      }
+   }
+
+   &__link {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+   &__svg{
+      width: to-rem(18);
+      height: to-rem(18);
+      & path{
+         transition: .3s;
+         fill: #5E6648;
+      }
+   }
+}
+
+
+
+.copy {
+   padding: to-rem(30) 0;
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: space-between;
+   gap: to-rem(20);
+   &__logo {
+      max-width: to-rem(200);
+   }
+
+   &__img {
+      width: 100%;
+   }
+
+   &__text {
+      line-height: to-lh(21,14);
+      color: #B5C096;
+      padding-right: to-rem(26);
+   }
+}

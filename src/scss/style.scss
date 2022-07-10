@@ -1,0 +1,42 @@
+@use "sass:math";
+// Подключение Normalize
+@import 'style/normalize.scss';
+
+/* autoprefixer grid: autoplace */
+
+// Подключение шрифтов
+@import 'style/fonts.scss';
+
+// Подключение Variables
+@import 'variables/variables.scss';
+
+// Дополнительные обнуления
+@import 'style/base.scss';
+
+// Подключение Mixin
+@import 'mixin/mixin.scss';
+
+// Подключение Burger
+@import './style/common/burger.scss';
+
+// Подключение Popup
+@import './style/common/popup.scss';
+@import './style/common/popupGetTouch.scss';
+@import './style/common/popupResult.scss';
+@import './style/common/popupMore.scss';
+@import './style/common/popupStarted.scss';
+
+// Подключение Animation To Scroll
+@import './animationToScroll/animToScroll.scss';
+
+// Подключение стилей
+@import 'style/header.scss';
+@import 'style/main.scss';
+@import 'style/client.scss';
+@import 'style/tehnology.scss';
+@import 'style/project.scss';
+@import 'style/evaluation.scss';
+
+@import 'style/footer.scss';
+
+

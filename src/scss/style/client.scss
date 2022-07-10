@@ -1,0 +1,22 @@
+.client {
+   display: flex;
+   padding: 60px 54px 166px 65px;
+   gap: 66px;
+   position: relative;
+   margin-top: -113px;
+   max-width: 1276px;
+   background-color: #fff;
+   background: #FFFFFF;
+   box-shadow: 50px 50px 100px rgba(0, 0, 0, 0.145947);
+   border-radius: 2px;
+   height: 227px;
+   z-index: 3;
+   margin-left: auto;
+   @include mq('1200px'){
+      padding: to-rem(15);
+      height: auto;
+      flex-wrap: wrap;
+      justify-content: center;
+      @include adaptiv-value('gap', 25, 15);
+   }
+}
